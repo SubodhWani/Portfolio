@@ -226,6 +226,11 @@ export function initApp() {
     b.addEventListener('click', () => go(b.dataset.go));
   });
 
+  backhint.addEventListener('click', () => {
+    toggleWheel(false);
+    go(SCREENS[0].id);
+  });
+
   /* ── keyboard ───────────────────────────────────────────────── */
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Tab') { e.preventDefault(); toggleWheel(); return; }

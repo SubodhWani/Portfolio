@@ -345,9 +345,19 @@ body { display: grid; place-items: center; }
   color: rgba(255,255,255,.6);
   border: 1px solid rgba(255,255,255,.22);
   padding: .28cqw .7cqw;
-  opacity: 0; transition: opacity .3s; pointer-events: none;
+  opacity: 0; transition: opacity .3s, background-color .2s, color .2s, border-color .2s;
+  pointer-events: none;
 }
-.backhint.on { opacity: 1; }
+.backhint.on {
+  opacity: 1;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.backhint.on:hover {
+  background: var(--accent);
+  color: var(--ink);
+  border-color: var(--accent);
+}
 
 /* ============================================================
    CONTENT PANELS
