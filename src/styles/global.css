@@ -340,13 +340,16 @@ body { display: grid; place-items: center; }
 .tagline i { font-style: normal; color: rgba(255,255,255,.35); margin: 0 .5cqw; }
 
 .backhint {
-  position: absolute; right: 2.6cqw; top: 15cqh; z-index: 45;
-  font-size: 1cqw; letter-spacing: .16em; text-transform: uppercase;
-  color: rgba(255,255,255,.6);
-  border: 1px solid rgba(255,255,255,.22);
-  padding: .28cqw .7cqw;
-  opacity: 0; transition: opacity .3s, background-color .2s, color .2s, border-color .2s;
+  position: absolute; left: 50%; bottom: 4.2cqh; transform: translateX(-50%); z-index: 45;
+  font-size: 1.4cqw; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(8, 4, 14, 0.88);
+  border: .18cqw solid var(--accent);
+  padding: .4cqw 1.2cqw;
+  opacity: 0; transition: opacity .3s, background-color .2s, color .2s, border-color .2s, transform .2s, box-shadow .2s;
   pointer-events: none;
+  border-radius: .22cqw;
+  box-shadow: 0 .4cqw 1.4cqw rgba(0, 0, 0, 0.75);
 }
 .backhint.on {
   opacity: 1;
@@ -357,7 +360,27 @@ body { display: grid; place-items: center; }
   background: var(--accent);
   color: var(--ink);
   border-color: var(--accent);
+  box-shadow: 0 0 2cqw var(--accent);
 }
+.backhint.on:active {
+  transform: translateX(-50%) scale(0.96);
+}
+
+@media (max-width: 768px) {
+  .backhint {
+    font-size: 15px;
+    padding: 8px 16px;
+    bottom: 15px;
+    top: auto;
+    border-radius: 4px;
+    border: 2px solid var(--accent);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+  }
+  .backhint.on:active {
+    transform: translateX(-50%) scale(0.94);
+  }
+}
+
 
 /* ============================================================
    CONTENT PANELS
