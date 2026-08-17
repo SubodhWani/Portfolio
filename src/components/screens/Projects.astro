@@ -1,0 +1,28 @@
+---
+import { PROJECTS } from '../../config/site.config.js';
+---
+<section class="screen" data-s="projects">
+  <div class="title-block">
+    <div class="gta-title sm anim">{PROJECTS.title}</div>
+    <div class="gta-sub anim">{PROJECTS.subtitle}</div>
+  </div>
+  <div class="panel">
+    {PROJECTS.list.map((p) => (
+      <a
+        class={p.featured ? 'card hot anim' : 'card anim'}
+        href={p.url || undefined}
+        target={p.url ? '_blank' : undefined}
+        rel={p.url ? 'noopener noreferrer' : undefined}
+      >
+        <div class="card-ico">{p.icon}</div>
+        <div>
+          <div class="card-t">{p.name}</div>
+          <div class="card-s">{p.description}</div>
+        </div>
+      </a>
+    ))}
+    <div class="btn anim" data-go={PROJECTS.button.goesTo}>
+      {PROJECTS.button.text} <span>&rsaquo;</span>
+    </div>
+  </div>
+</section>
